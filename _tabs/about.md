@@ -16,7 +16,8 @@ me to make a sharp career pivot into computer science.
 I will begin studying computer science at the
 [University of British Colubmia (UBC)](https://www.ubc.ca/) in September 2023.
 I recently earned a Bachelor of Science with Honors in biochemistry from the
-[University of Alberta](https://www.ualberta.ca/), and
+[University of Alberta](https://www.ualberta.ca/) and graduated
+with highest distinction.
 I am currently working on implementing transport property analyses
 in [MDAnalysis](https://www.mdanalysis.org/)
 for [Google Summer of Code](https://summerofcode.withgoogle.com/).
@@ -27,7 +28,7 @@ and cybersecurity.
 ## Research
 
 I took charge of the MD side of our research on the molecular mechanism of
-Hsp90 at the
+the protein cancer target Hsp90 at the
 [Spyracopoulos Lab](https://lspy.biochem.ualberta.ca).
 I constructed 5 atomic models in PyMOL and conducted extensive classical
 and steered molecular dynamics (MD) simulations using AMBER for
