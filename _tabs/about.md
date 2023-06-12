@@ -10,8 +10,8 @@ I leveraged high-performance computing on the
 to simulate the protein cancer target Hsp90 via molecular dynamics (MD).
 Running the MD software suite AMBER introduced me to these systems, but I felt
 a deeper curiosity towards the workings and design of distributed systems,
-multithreaded applications, and distributed programs. This curiosity inspired
-me to make a sharp career pivot into computer science.
+multithreaded applications, and distributed programs. **This curiosity inspired
+me to make a sharp career pivot into computer science.**
 
 I will begin studying computer science at the
 [University of British Colubmia (UBC)](https://www.ubc.ca/) in September 2023.
