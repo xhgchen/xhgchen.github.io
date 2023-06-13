@@ -45,6 +45,6 @@ These past few weeks were rife with challenges and victories. Here are some of m
 ## Next Steps
 
 - Meet the rest of the MDAnalysis team, my fellow GSoC students, and the new Station1 students tomorrow!
-- Start using GitHub Projects
+- Start using [GitHub Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
 - Prepare to write the VACF documentation once the VACF PR is merged
 - Finish planning/start writing the viscosity calculation via the Helfand method
