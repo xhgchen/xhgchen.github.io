@@ -7,7 +7,7 @@ tags: [google summer of code, gsoc, google summer of code 2023, gsoc 2023, compu
 
 ## Fruitful Beginnings
 
-The past two weeks have been full of progress and unexpected challenges. Communication with my mentors and the MDAnalysis organization as a whole has gone well, and everyone has been responsive and helpful, even with their other commitments. I built [Transport Analysis](https://github.com/MDAnalysis/transport-analysis), a fresh, standalone Python package from the [MDAKit cookiecutter template](https://github.com/MDAnalysis/cookiecutter-mdakit), then finished implementing and testing the basic functionality for computing velocity autocorrelation functions (VACFs) from an `AtomGroup`. I also raised the appropriate issues for the next features and changes in the GitHub repository. Recently, I worked through the Read the Docs tutorial in preparation for writing the documentation.
+The past two weeks have been full of progress and unexpected challenges. Communication with my mentors and the MDAnalysis organization as a whole has gone well, and everyone has been responsive and helpful, even with their other commitments. I built [Transport Analysis](https://github.com/MDAnalysis/transport-analysis), a fresh, standalone Python package, from the [MDAKit cookiecutter template](https://github.com/MDAnalysis/cookiecutter-mdakit), then finished implementing and testing the basic functionality for computing velocity autocorrelation functions (VACFs) from an `AtomGroup`. I also raised the appropriate issues for the next features and changes in the GitHub repository. Recently, I worked through the Read the Docs tutorial in preparation for writing the documentation.
 
 ## Developing an MDAKit from the Cookiecutter
 
