@@ -43,7 +43,7 @@ These past few weeks were rife with challenges and victories. Here are some of m
 ## Next Steps
 
 - Follow up on the feedback in [PR#24](https://github.com/MDAnalysis/transport-analysis/pull/24): use a cache variable to check whether the analysis has been run, organize the tests that use the fixture in a separate class and make the parameterization over the class, and add functionality to plot the running integral
-- Continue writing tests for the `ViscosityHelfand` ([PR#25](https://github.com/MDAnalysis/transport-analysis/pull/25))
+- Continue writing tests for the `ViscosityHelfand` class ([PR#25](https://github.com/MDAnalysis/transport-analysis/pull/25))
 - Install OpenMM and test the self-diffusivity implementation with real data
 
 ## References
