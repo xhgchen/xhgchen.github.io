@@ -8,6 +8,8 @@ math: true
 
 Even with my 2 week Vancouver housing search getting in the way, the past period has been satisfying. I finished the bulk of the self-diffusivity implementation, added a plotting function for the velocity autocorrelation function (VACF) class, and started working on the Helfand viscosity implementation. Along the way, I flattened the package's organization and wrote documentation for the VACF class. As always, Hugo, Orion, and the rest of the MDAnalysis organization have been essential supports and voices of wisdom in this process. I am happy to have passed the Google Summer of Code Midterm Evaluation, and all of this progress makes me excited to see what [Transport Analysis](https://github.com/MDAnalysis/transport-analysis) will look like upon its first release.
 
+I will also take this chance to note that a VACF expresses how much the velocity of a system changes over time. If a system stayed at constant velocity for the entire course of the simulation, it would have a stable velocity correlation and the VACF plot would be a horizontal line. The sharper the decay of the VACF, the sharper the changes in velocity in the system.
+
 ## Package Organization and VACF Docs
 
 Package organization is an important consideration in the development process. [@orionarcher](https://github.com/orionarcher) brought up that having an analysis subfolder is redundant in our package because all the modules will be analysis type modules. It made more sense to move up all the files so that users will call `transport_analysis.module_name` instead of `transport_analysis.analysis.module_name`. I merged this update in [PR#22](https://github.com/MDAnalysis/transport-analysis/pull/22).
@@ -33,8 +35,6 @@ where $x$ is the position, $p$ is the momentum, $k_B$ is the Boltzmann constant,
 Since there is no suitable alternative for the Green-Kubo viscosity calculation, I will write a utility function for this as planned.
 
 ## Lessons Learned
-
-These past few weeks were rife with challenges and victories. Here are some of my key takeaways:
 
 - Start small with the tests - for `sd()`, there was no need to let my difficulties finding an analytical solution hinder my progress
 - Thinking about and looking into whether something can be done better is a great way to come up with new ideas and make headway with writing tests
