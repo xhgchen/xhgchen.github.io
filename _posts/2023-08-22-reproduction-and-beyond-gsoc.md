@@ -16,13 +16,15 @@ One of the great benefits of testing a package with a real use case is being abl
 
 When Hugo walked me through how to get started with OpenMM, I thought the reproduction would be easy. Once again, I severely underestimated all the potential pitfalls of software development and science and working between different forms of information. Running simulations was easy, but working with velocities was far from straightforward. To obtain velocity information from a simulation in OpenMM, the user must write their own velocity reporter class and write out the velocities in a separate file. Additionally, I wasted a few runs and a lot of hours trying to run a single simulation that would cover all my bases for self-diffusivity and viscosity. In hindsight, this was a naive thought.
 
+If I were to do this again, I would choose an MD engine that natively writes velocities to the same output file like AMBER or GROMACS. I will likely opt for one of the two when I proceed with the Einstein-Helfand reproduction.
+
 ## Heeding the Literature
 
-Within reason given my time constraints, I followed the best practices paper by Maginn et al.[^3] I ran a $20$ $ps$ simulation of the SPC/E water model with 1371 water molecules, outputting velocities every 4 fs. While working out this setup, I realized that it was far better to tailor my simulation to one task, calculating self-diffusivity in my case, than to try to cover a lot of ground with a long and costly simulation. It is difficult to run a single simulation in a way that is best for all of a user's needs and running multiple simulations is good practice.
+Within reason given my time constraints, I followed the best practices paper by Maginn et al.[^3] I ran a $20$ $ps$ simulation of the SPC/E water model using OpenMM and openmmtools with 1371 water molecules, outputting velocities every 4 fs. While working out this setup, I realized that it was far better to tailor my simulation to one task, calculating self-diffusivity in my case, than to try to cover a lot of ground with a long and costly simulation. It is difficult to run a single simulation in a way that is best for all of a user's needs and running multiple simulations is good practice.
 
 For reference, I have added my OpenMM script below. If this simulation were to be conducted for real research, I would highly recommend sampling from the correct ensemble as directed in the Maginn et al. paper and running multiple replicates.[^3]
 
-```
+```python
 from openmm.app import *
 from openmm import *
 from openmm.unit import *
