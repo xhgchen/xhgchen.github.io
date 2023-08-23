@@ -100,10 +100,10 @@ To perform the self-diffusivity calculation with OpenMM-outputted velocities, I 
 
 The following is simply a list of my own ideas for what we could add to this package and far from exhaustive. We encourage new ideas, GitHub issues, bug reports, and contributions! I intend to continue looking into the Einstein-Helfand viscosity reproduction and complete the Green-Kubo viscosity utility function, but the rest will depend on my availability:
 - Implement a utility function to calculate viscosity via the Green-Kubo method (planned)
-- Reproduction of literature results using the implemented Einstein-Helfand viscosity class (will continue looking into in consultation with MDAnalysis community)
+- Reproduce literature results using the implemented Einstein-Helfand viscosity class (will continue looking into in consultation with MDAnalysis community)
 - Implement additional transport property analyses (ionic and thermal conductivity, etc) and tools (utility functions, plotting functions, etc)
-- Example Jupyter Notebooks
-- Improved docs
+- Add example Jupyter Notebooks
+- Continue improving the documentation
 
 ## References
 
