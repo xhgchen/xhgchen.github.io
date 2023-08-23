@@ -2,7 +2,7 @@
 title: A Fast Start with VACFs (GSoC '23, 1)
 date: 2023-06-12 16:30:00 -0600
 categories: [Google Summer of Code, GSoC Updates]
-tags: [google summer of code, gsoc, google summer of code 2023, gsoc 2023, computer science, cs, python, numpy, scipy, computational research, molecular dynamics, mdanalysis, computational chemistry, biophysics, bioinformatics, biomolecular research, materials research, chemical engineering, physics, mathematics, math, mdakit, mdakits, velocity autocorrelation function, vacf, self-diffusivity, green-kubo]     # TAG names should always be lowercase
+tags: [google summer of code, gsoc, google summer of code 2023, gsoc 2023, computer science, cs, software engineering, software development, open source, python, numpy, scipy, computational research, molecular dynamics, mdanalysis, computational chemistry, biophysics, bioinformatics, biomolecular research, materials research, chemical engineering, physics, mathematics, math, mdakit, mdakits, velocity autocorrelation function, vacf, self-diffusivity, green-kubo]     # TAG names should always be lowercase
 ---
 
 ## Fruitful Beginnings
