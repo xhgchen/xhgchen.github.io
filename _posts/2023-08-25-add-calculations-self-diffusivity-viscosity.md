@@ -25,7 +25,7 @@ After some discussion that began with Discord user jenclark's suggestion to try 
 
 My summer culminated in the creation of [Transport Analysis](https://github.com/MDAnalysis/transport-analysis), a standalone Python package to compute and analyze transport properties powered by MDAnalysis.
 
-Transport Analysis GitHub: https://github.com/MDAnalysis/transport-analysis
+Transport Analysis GitHub: <https://github.com/MDAnalysis/transport-analysis>
 
 ### Building a FAIR-compliant Python Package from the MDAKit Cookiecutter Template
 
@@ -43,7 +43,7 @@ Transport Analysis GitHub: https://github.com/MDAnalysis/transport-analysis
 
 [PR #29](https://github.com/MDAnalysis/transport-analysis/pull/29), which adds plotting functionalities for the Einstein-Helfand viscosity class, is essentially complete but has yet to be merged because we are still considering whether it would be better to leave the plot in standard MDAnalysis units or convert them to SI units. While standard MDAnalysis units are friendly for VACFs and self-diffusivity, that is not the case for viscosity due to the number of terms involved in the calculation. It is the only unmerged PR in the project at the time of writing.
 
-Because we prioritized the new, more user-friendly Einstein-Helfand viscosity class, which turned out to be more time consuming thanks to the research and complex implementation, I did not get to write the Green-Kubo viscosity utility function within the GSoC timeline. Nonetheless, I am happy to have adapted my original plan to our community discussions and delivered a more useful project. I plan to implement the utility function after GSoC, though I suspect most users will much prefer the Einstein-Helfand viscosity class.
+Because we prioritized the new, more user-friendly Einstein-Helfand viscosity class, which turned out to be more time consuming thanks to the research and complex implementation, I did not get to write the Green-Kubo viscosity utility function within the GSoC timeline. Nonetheless, I am happy to have adapted my original plan to our community discussions and delivered a more useful project. I plan to implement the utility function after GSoC, though I suspect most users will much prefer the Einstein-Helfand viscosity class. Ultimately, I achieved my goals for this summer and I am excited to see Transport Analysis grow as a community resource.
 
 ### Reproduction of the Literature
 
