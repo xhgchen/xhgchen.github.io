@@ -33,25 +33,27 @@ Transport Analysis GitHub: <https://github.com/MDAnalysis/transport-analysis>
 
 ### Velocity Autocorrelation Functions (VACFs) and Green-Kubo Self-Diffusivity
 
-[PR #1](https://github.com/MDAnalysis/transport-analysis/pull/1) built two implementations of the VACF calculation: a simple "windowed" algorithm and a fast FFT algorithm leveraging `tidynamics`. All the computations involved are vectorized, but the FFT algorithm speeds the calculations up even further. I designed a simple test system from a unit velocity trajectory and some very simple calculations on pen and paper, then gradually wrote more and more tests until my code was tested with the same rigour as the [MDAnalysis MSD module](https://docs.mdanalysis.org/stable/documentation_pages/analysis/msd.html) on top of reaching 100% code coverage.
+[PR #1](https://github.com/MDAnalysis/transport-analysis/pull/1) built two implementations of the VACF calculation: a simple "windowed" algorithm and a fast FFT algorithm leveraging `tidynamics`. All the computations involved are vectorized, but the FFT algorithm speeds the calculations up even further. I designed a simple test system from a unit velocity trajectory and began with some very simple calculations on pen and paper, then gradually wrote more and more tests until my code was tested with the same rigour as the [MDAnalysis MSD module](https://docs.mdanalysis.org/stable/documentation_pages/analysis/msd.html) on top of reaching 100% code coverage.
 
-[PR #23](https://github.com/MDAnalysis/transport-analysis/pull/23) introduced a plotting method for VACFs via `Matplotlib`'s [object-oriented API](https://matplotlib.org/stable/api/index.html), saving users from having to their own plotting code. [PR #24](https://github.com/MDAnalysis/transport-analysis/pull/24) then makes it easy to calculate the Green-Kubo self-diffusivity with the methods `self_diffusivity_gk` and `self_diffusivity_gk_odd`. It also added a new plotting method for the running integral.
+[PR #23](https://github.com/MDAnalysis/transport-analysis/pull/23) introduced a plotting method for VACFs via `Matplotlib`'s [object-oriented API](https://matplotlib.org/stable/api/index.html), saving users from having to write their own plotting code. [PR #24](https://github.com/MDAnalysis/transport-analysis/pull/24) then makes it easy to calculate the Green-Kubo self-diffusivity with the methods `self_diffusivity_gk` and `self_diffusivity_gk_odd`. It also added a new plotting method for the running integral.
 
 ### Einstein-Helfand Viscosity
 
-[PR #25](https://github.com/MDAnalysis/transport-analysis/pull/25) was challenging because it was not part of the initial plan and the methodology and practices were less prominent in the literature. The calculation itself was also more difficult to work with because it a lot more terms than self-diffusivity, but I enjoyed the process of learning and developing this class. Like the VACF implementation, it takes full advantage of NumPy arrays and the [MDAnalysis AnalysisBase API](https://docs.mdanalysis.org/stable/documentation_pages/analysis/base.html).
+[PR #25](https://github.com/MDAnalysis/transport-analysis/pull/25) was challenging because it was not part of the initial plan and the methodology and practices were less prominent in the literature. The calculation itself was also more difficult to work with because it had a lot more terms than self-diffusivity, but I enjoyed the process of learning and developing this class. Like the VACF implementation, it takes full advantage of NumPy arrays and the [MDAnalysis AnalysisBase API](https://docs.mdanalysis.org/stable/documentation_pages/analysis/base.html).
 
 [PR #29](https://github.com/MDAnalysis/transport-analysis/pull/29), which adds plotting functionalities for the Einstein-Helfand viscosity class, is essentially complete but has yet to be merged because we are still considering whether it would be better to leave the plot in standard MDAnalysis units or convert them to SI units. While standard MDAnalysis units are friendly for VACFs and self-diffusivity, that is not the case for viscosity due to the number of terms involved in the calculation. It is the only unmerged PR in the project at the time of writing.
 
-Because we prioritized the new, more user-friendly Einstein-Helfand viscosity class, which turned out to be more time consuming thanks to the research and complex implementation, I did not get to write the Green-Kubo viscosity utility function within the GSoC timeline. Nonetheless, I am happy to have adapted my original plan to our community discussions and delivered a more useful project. I plan to implement the utility function after GSoC, though I suspect most users will much prefer the Einstein-Helfand viscosity class. Ultimately, I achieved my goals for this summer and I am excited to see Transport Analysis grow as a community resource.
+Because we prioritized the new, more user-friendly Einstein-Helfand viscosity class, which turned out to be more time consuming due to the research and complex implementation, I did not get to write the Green-Kubo viscosity utility function within the GSoC timeline. Nonetheless, I am happy to have adapted my original plan to our community discussions and delivered a more useful project. I plan to implement the utility function after GSoC, though I suspect most users will much prefer the Einstein-Helfand viscosity class. Ultimately, I achieved my goals for this summer and I am excited to see Transport Analysis grow as a community resource.
 
 ### Reproduction of the Literature
 
 To go beyond testing against simple "toy" systems and test data, I began a reproduction of established transport property calculations in the literature to validate my implementations. I successfully calculated a self-diffusivity of $2.47 \times 10^-9$ $m^2 / s$ using my Green-Kubo self-diffusivity implementation from a $20$ $ps$ simulation of the SPC/E water model at $298$ $K$, which agrees well with the results in the literature.[^3]<sup>,</sup> [^4] A full writeup of this reproduction can be found in my last blog post, [*Reproduction and Beyond GSoC (GSoC '23, 4)*](https://xhgchen.github.io/posts/reproduction-and-beyond-gsoc/). Some of the key plots are provided below.
 
+#### VACF Plot
+
 ![VACF Plot](/assets/img/2023-08-22/vacf_plot.PNG){: width="1280" height="960" }
 
-### Running Integral Plot
+#### Running Integral Plot
 
 ![Running Integral Plot](/assets/img/2023-08-22/running_integral_plot.PNG){: width="1280" height="960" }
 
@@ -67,7 +69,7 @@ First, we clone Transport Analysis:
 git clone https://github.com/MDAnalysis/transport-analysis.git
 ```
 
-Then we can go ahead and install the package with `mamba` and `pip`:
+Then we can go ahead and install the package with `mamba` and `pip`. In this case, I have named the environment `ta-package`:
 
 ```console
 cd transport-analysis
@@ -108,6 +110,8 @@ We can run the calculation using any variable of choice such as `wat_vacf` and a
 ```python
 wat_vacf = VelocityAutocorr(ag).run()
 wat_vacf.results.timeseries
+
+# results from wat_vacf.results.timeseries
 array([275.62075467, -18.42008255, -23.94383428,  41.41415381,
      -2.3164344 , -35.66393559, -22.66874897,  -3.97575003,
       6.57888933,  -5.29065096])
@@ -115,7 +119,7 @@ array([275.62075467, -18.42008255, -23.94383428,  41.41415381,
 
 Notice that this example data is insufficient to provide a well-defined VACF. When working with real data, ensure that the velocities are written frequently enough to obtain a VACF suitable for your needs.
 
-A growing collection of Jupyter notebook tutorials/examples can be found in the [tutorials directory](https://github.com/MDAnalysis/transport-analysis/tree/main/docs/tutorials) in the repository.
+A growing collection of Jupyter Notebook tutorials/examples can be found in the [tutorials directory](https://github.com/MDAnalysis/transport-analysis/tree/main/docs/tutorials) in the repository.
 
 ## Lessons Learned
 
@@ -130,12 +134,20 @@ Here are a few highlights from my series of blog posts:
 
 ## The Future
 
-The beauty of open source is the potential for continued improvement and engagement with the community. I will continue working on Transport Analysis after GSoC, and both my mentors intend to make their own contributions to the package. We are always open to new ideas, GitHub issues, bug reports, and contributions. The following is simply a list of a few of the many possibilities for making improving this community resource:
+The beauty of open source is the potential for continued improvement and engagement with the community. I will continue working on Transport Analysis after GSoC, and both my mentors intend to make their own contributions to the package. We are always open to new ideas, GitHub issues, bug reports, and contributions. The following is simply a list of a few of the many possibilities for improving this community resource:
 - Implement a utility function to calculate viscosity via the Green-Kubo method (planned)
 - Reproduce literature results using the implemented Einstein-Helfand viscosity class (will continue looking into in consultation with MDAnalysis community)
 - Implement additional transport property analyses (ionic and thermal conductivity, etc) and tools (utility functions, plotting functions, etc)
 - Continue adding example Jupyter Notebooks
 - Continue improving the documentation
+
+## Acknowledgements
+
+I would like to thank [MDAnalysis](https://www.mdanalysis.org/) for supporting me from my first PR to my completion of GSoC and beyond. It has been such a wonderful experience discussing software and science on GitHub, Discord, and the mailing lists. I am very grateful for the continued support of my mentors, Hugo MacDermott-Opeskin ([@hmacdope](https://github.com/hmacdope)) and Orion Cohen ([@orionarcher](https://github.com/orionarcher)), who have taken the time to have many live calls with me, carefully review my code and the science of my work, and share a wealth of lessons and resources that I will continue learning from well after GSoC.
+
+I would like to extend further thanks to Oliver Beckstein ([@orbeckst](https://github.com/orbeckst)) for his support throughout my involvement with MDAnalysis and his insights on computational biophysics and programming. I also really appreciated Lily Wang ([@lilyminium](https://github.com/lilyminium)) and Irfan Alibay's ([@IAlibay](https://github.com/IAlibay)) help with setting up the package and the CI. I enjoyed talking about code formatting with Rocco Meli ([@RMeli](https://github.com/RMeli)) and I am grateful for Richard Gowers' ([@richardjgowers](https://github.com/richardjgowers)) reviews of my first analysis class.
+
+If any readers are interested in scientific software, molecular simulations, or computational research, I would highly encourage looking into the [MDAnalysis community](https://www.mdanalysis.org/about/). The developers' dedication and ability shows in the library's impressive performance compared to similar software and its unmatched interoperability and support for a wide range of analyses.
 
 ## References
 
