@@ -2,7 +2,7 @@
 title: Reproduction and Beyond GSoC (GSoC '23, 4)
 date: 2023-08-22 21:00:00 -0700
 categories: [Google Summer of Code, GSoC Updates]
-tags: [google summer of code, gsoc, google summer of code 2023, gsoc 2023, computer science, cs, software engineering, software development, open source, python, numpy, scipy, computational research, molecular dynamics, mdanalysis, computational chemistry, biophysics, bioinformatics, biomolecular research, materials research, chemical engineering, physics, mathematics, math, mdakit, mdakits, viscosity, helfand, einstein, einstein-helfand, green-kubo, openmm, openmmtools, amber, gromacs]     # TAG names should always be lowercase
+tags: [google summer of code, gsoc, google summer of code 2023, gsoc 2023, computer science, cs, software engineering, software development, open source, python, numpy, scipy, computational research, molecular dynamics, mdanalysis, computational chemistry, biophysics, bioinformatics, biomolecular research, materials research, chemical engineering, physics, mathematics, math, mdakit, mdakits, velocity autocorrelation function, vacf, self-diffusivity, viscosity, helfand, einstein, einstein-helfand, green-kubo, openmm, openmmtools, amber, gromacs]     # TAG names should always be lowercase
 math: true
 ---
 
