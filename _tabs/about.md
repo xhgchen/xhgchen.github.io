@@ -14,7 +14,7 @@ multithreaded applications, and distributed programs. **This curiosity inspired
 me to make a sharp career pivot into computer science.**
 
 I will begin studying computer science at the
-[University of British Colubmia (UBC)](https://www.ubc.ca/) in September 2023.
+[University of British Columbia (UBC)](https://www.ubc.ca/) in September 2023.
 I recently earned a Bachelor of Science with Honors in biochemistry from the
 [University of Alberta](https://www.ualberta.ca/) and graduated
 with highest distinction.

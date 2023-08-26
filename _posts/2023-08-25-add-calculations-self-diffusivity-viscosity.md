@@ -6,7 +6,7 @@ tags: [google summer of code, gsoc, google summer of code 2023, gsoc 2023, compu
 math: true
 ---
 
-**Student**: Xu Hong Chen
+**Contributor**: Xu Hong Chen
 
 **Mentors**: Hugo MacDermott-Opeskin ([@hmacdope](https://github.com/hmacdope)), Orion Cohen ([@orionarcher](https://github.com/orionarcher))
 
