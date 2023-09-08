@@ -20,7 +20,7 @@ timezone: America/Vancouver
 
 title: Xu Hong Chen # the main title
 
-tagline: CS @ UBC, Scientific Software Developer # it will display as the sub-title
+tagline: CS @ UBC, Software Developer # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A CS-focused personal website and blog.
