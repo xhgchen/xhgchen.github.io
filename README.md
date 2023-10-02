@@ -9,6 +9,6 @@ Visit the site at: https://xhgchen.github.io/
 
 GitHub: [@xhgchen](https://github.com/xhgchen)
 
-LinkedIn: [Xu Hong Chen](https://www.linkedin.com/in/xu-hong-chen)
+LinkedIn: [Xu Hong Chen](https://www.linkedin.com/in/xuhongchen)
 
 Email: xuhong[dot]chen[dot]business[at]gmail.com
